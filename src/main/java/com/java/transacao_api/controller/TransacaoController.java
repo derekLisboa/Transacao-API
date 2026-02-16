@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,12 +19,15 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/transacao")
 public class TransacaoController {
 
     private final TransacaoService transacaoService;
+
+    public TransacaoController(TransacaoService transacaoService){
+        this.transacaoService = transacaoService;
+    }
 
     @PostMapping
     @Operation(description = "Endpoint responsavel por adicionar transações")

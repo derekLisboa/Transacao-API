@@ -12,14 +12,15 @@ import com.java.transacao_api.controller.dtos.EstatisticasResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/estatistica")
-@RequiredArgsConstructor
 public class EstatisticasController {
 
     private final EstatisticasService estatisticasService;
+    public EstatisticasController(EstatisticasService estatisticasService) {
+    this.estatisticasService = estatisticasService;
+    }   
 
     @GetMapping
     @Operation(description = "Endpoint responsavel por buscar estatisticas de transações")
